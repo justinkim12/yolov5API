@@ -11,6 +11,8 @@ sys.path.insert(0, '')
 os.environ['KMP_DUPLICATE_LIB_OK']='True'
 
 
+
+
 """
 Run a Flask REST API exposing one or more YOLOv5s models
 """
@@ -44,7 +46,9 @@ if __name__ == '__main__':
     parser.add_argument('--port', default=5000, type=int, help='port number')
     parser.add_argument('--model', nargs='+', default=['yolov5s'], help='model(s) to run, i.e. --model yolov5n yolov5s')
     opt = parser.parse_args()
-    model = torch.load('test.pt')#TODO3 질문 우리의 모델의 위치는 어디인가
+    model_path = os.path.abspath('test.pt')
+    model = torch.load(model_path)
+    # model = torch.load('test.pt')#TODO3 질문 우리의 모델의 위치는 어디인가
     # model = torch.hub.load('ultralytics/yolov5', 'yolov5s', force_reload=True)
     app.run(host='0.0.0.0', port=opt.port)  # debug=True causes Restarting
     # with stat
