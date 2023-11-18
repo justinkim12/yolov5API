@@ -7,7 +7,7 @@ import pprint
 
 import requests
 
-DETECTION_URL = 'http://localhost:5000/v1/object-detection/yolov5s'
+DETECTION_URL = 'http://localhost:5000/v1/object-detection/'
 IMAGE = 'zidane.jpg'
 
 # Read image
