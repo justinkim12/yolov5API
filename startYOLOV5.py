@@ -46,9 +46,9 @@ if __name__ == '__main__':
     parser.add_argument('--port', default=5000, type=int, help='port number')
     parser.add_argument('--model', nargs='+', default=['yolov5s'], help='model(s) to run, i.e. --model yolov5n yolov5s')
     opt = parser.parse_args()
-    model_path = os.path.abspath('test.pt')
-    model = torch.load(model_path)
-    # model = torch.load('test.pt')#TODO3 질문 우리의 모델의 위치는 어디인가
+    # model_path = os.path.abspath('test.pt')
+    model = torch.hub.load('.', 'custom', path='./test.pt', source='local')
+    # model = torch.load('yolov5s.pt')#TODO3 질문 우리의 모델의 위치는 어디인가
     # model = torch.hub.load('ultralytics/yolov5', 'yolov5s', force_reload=True)
     app.run(host='0.0.0.0', port=opt.port)  # debug=True causes Restarting
     # with stat
