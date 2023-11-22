@@ -56,6 +56,11 @@ def getFile():
 
         names = result.names
         class_dict = dict()
+        dis_type = ['scratch', 'installation', 'exterior', 'gap']
+
+        for type in dis_type:
+            class_dict[type] = 0
+
         for i, det in enumerate(result.pred):
                 x = np.ascontiguousarray(imgs[i])
                 annotator = Annotator(x, line_width=3, example=str(names))

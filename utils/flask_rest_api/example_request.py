@@ -7,7 +7,7 @@ import pprint
 
 import requests
 import json
-DETECTION_URL = 'http://172.16.52.153:5000/v2/object-detection/best'
+DETECTION_URL = 'http://127.0.0.1:5000/v2/object-detection/best'
 IMAGES = ['IMG1.jpg','IMG2.jpg']
 
 # Read image
