@@ -1,0 +1,7 @@
+path: D:/yolov5-master/custom_dataset
+train: train/images/scratch
+val: valid/images
+test: test/images
+
+nc: 4
+names: ['scratch', 'exterior-damage', 'flush', 'installation-defect']
