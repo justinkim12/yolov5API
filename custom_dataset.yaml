@@ -4,4 +4,5 @@ val: valid/images
 test: test/images
 
 nc: 4
-names: ['scratch', 'exterior-damage', 'flush', 'installation-defect']
+names: ['scratch', 'exterior', 'gap', 'installation']
+#모델 학습시에 반영되는 것 같음?

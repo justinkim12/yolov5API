@@ -92,7 +92,19 @@ def getFile():
             buffer.seek(0)
             image_base64 = base64.b64encode(buffer.read()).decode('utf-8')
             encoded_imges.append(image_base64)
-        return jsonify({'result': data,'images':encoded_imges})
+        data['encodedImages']=encoded_imges
+
+        # 일단 하드 코딩
+        if "exterior-damage" in data:
+            data["exterior"] = data.pop("exterior-damage")
+        if "flush" in data:
+            data["gap"] = data.pop("flush")
+        if "installation-defect" in data:
+            data["installation"] = data.pop("installation-defect")
+
+        return jsonify(data)
+
+
 
     return json.dumps({"result": "fail"})
 
@@ -153,4 +165,4 @@ if __name__ == '__main__':
     model = torch.hub.load("ultralytics/yolov5", 'custom', 'best.pt', force_reload=True, skip_validation=True)
 
     app.run(host='0.0.0.0', port=default_port)  # debug=True causes Restarting with stat
-    app.logger.info("Hi")
+
